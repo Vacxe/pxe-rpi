@@ -70,8 +70,8 @@ echo "${SERVER_IP}:${VOLUME}/rpi-tftpboot/$SERIAL /boot nfs defaults,ver=3,proto
 echo "${SERVER_IP}:${VOLUME}/rpi-pxe/$SERIAL / nfs defaults,ver=3,proto=tcp 0 0" | sudo tee -a "$PXE_DIR/etc/fstab" > /dev/null
 
 # Enable SSH
-echo "🔐 Enabling SSH service..."
-sudo ln -sf /lib/systemd/system/ssh.service "$PXE_DIR/etc/systemd/system/multi-user.target.wants/ssh.service"
+# echo "🔐 Enabling SSH service..."
+# sudo ln -sf /lib/systemd/system/ssh.service "$PXE_DIR/etc/systemd/system/multi-user.target.wants/ssh.service"
 
 # Unmount partitions
 sudo umount "$BOOT_MNT"
