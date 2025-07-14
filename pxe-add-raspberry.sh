@@ -66,7 +66,7 @@ echo -e "127.0.1.1\t$HOSTNAME" | sudo tee -a "$PXE_DIR/etc/hosts" > /dev/null
 # Fix /etc/fstab for NFS boot
 echo "🛠️  Adjusting /etc/fstab for network boot..."
 echo "proc            /proc           proc    defaults          0       0" | sudo tee "$PXE_DIR/etc/fstab" > /dev/null
-echo "${SERVER_IP}:${VOLUME}/rpi-tftpboot/$SERIAL /boot nfs defaults,ver=3,proto=tcp 0 0" | sudo tee -a "$PXE_DIR/etc/fstab" > /dev/null
+echo "${SERVER_IP}:$TFTP_DIR /boot nfs defaults,ver=3,proto=tcp 0 0" | sudo tee -a "$PXE_DIR/etc/fstab" > /dev/null
 
 # Enable SSH
 # echo "🔐 Enabling SSH service..."
